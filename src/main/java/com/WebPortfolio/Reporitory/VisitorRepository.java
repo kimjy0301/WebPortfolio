@@ -10,9 +10,7 @@ import com.WebPortfolio.Model.Visitor;
 @Repository
 public interface VisitorRepository extends JpaRepository<Visitor, Long> {
 
-	List<Visitor> findById(long id);
-	
-
+	List<Visitor> findById(long id);	
 	Visitor findByIp(String ip);
 	
 	
