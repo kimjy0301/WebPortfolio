@@ -37,11 +37,8 @@ public class AjaxController {
 
 			a.put("name", message.getUserName());
 			a.put("email", message.getUserMail());
-			a.put("text", message.getUserText());
-			
+			a.put("text", message.getUserText());			
 		}
-		
-
 		return a;
 	}
 

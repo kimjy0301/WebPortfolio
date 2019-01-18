@@ -1,5 +1,7 @@
 package com.WebPortfolio.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.WebPortfolio.Service.InstagramService;
 import com.WebPortfolio.Service.MessageService;
 import com.WebPortfolio.Service.PortfolioService;
+import com.WebPortfolio.Service.VisitorService;
 
 @Controller
 public class MainController {
@@ -22,13 +25,18 @@ public class MainController {
 	
 	@Autowired
 	MessageService messageService;	
+
+	@Autowired
+	VisitorService visitorService;	
 	
 	@Value("${upload.portfolioPath}")
 	String portfolioPath;
 
 
 	@RequestMapping("/")
-	public String home(Model model) throws JSONException {
+	public String home(Model model,HttpServletRequest request) throws JSONException {
+		
+		visitorService.saveVisitor(request);
 		
 		model.addAttribute("datalist", messageService.getMessageListTop5ByOrderByIdDesc());
 		model.addAttribute("portfolioList", portfolioService.getPortfolioList());
