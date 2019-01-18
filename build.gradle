@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+  imports {
+      mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.228'
+  }
+}
+
+group = 'com.WebPortfolio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes  'Title': 'My Application', 'Version': version, 'Main-Class': group
+    }
+    archiveName 'MyApp.jar'
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+}
+  
+
+repositories {
+	mavenCentral()
+}
+
+
+
+dependencies {
+	compileOnly('org.projectlombok:lombok')	
+	compile ('org.springframework.boot:spring-boot-starter-web')
+    compile ('org.springframework.boot:spring-boot-starter-thymeleaf')   
+    compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')   
+	    	    
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	compileOnly('org.projectlombok:lombok')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+    
+	compile ('org.springframework.boot:spring-boot-starter-data-jpa')	
+	compile ('com.h2database:h2')
+    // https://mvnrepository.com/artifact/org.imgscalr/imgscalr-lib
+	compile group: 'org.imgscalr', name: 'imgscalr-lib', version: '4.2'
+	
+	compile 'com.amazonaws:aws-java-sdk-s3'
+	compile 'org.json:json:20171018'
+	
+}

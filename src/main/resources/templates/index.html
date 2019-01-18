@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">        
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">	
+        <meta content="" name="description">
+        <meta content="" name="author">
+        <title>KimJiYong's Private Web</title>
+        <!-- Bootstrap core CSS   -->
+        <link
+        rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+        <!-- Custom fonts for this template -->
+        <link rel="stylesheet" th:href="@{/vendor/fontawesome-free/css/all.min.css}" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Jua&amp;subset=korean" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link
+        href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" th:href="@{/css/agency.min.css}">
+        <link rel="stylesheet" th:href="@{/css/toastr.css}"/>
+
+
+
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <style></style>
+    </head>
+    <div id="loading">
+        <div id="loading-div">
+            <img alt="Loading..." src="/img/731.png"/>
+            <p class="text-center" id="loading-text">Loading..</p>
+        </div>
+    </div>
+    <body
+        id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top" onclick="pageTopFunction();">Jiyong's Web page
+                </a>
+                <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#purpose">Purpose</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#tools">Tools</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header -->
+        <header class="masthead">
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">
+                        .Net Programmer 김지용의 웹입니다.
+                    </div>
+                    <div class="intro-heading text-uppercase">
+                        방문해주셔서 감사합니다.
+                    </div>
+                    <a class="animated pulse infinite delay-2s btn btn-primary btn-xl text-uppercase js-scroll-triggero" href="#purpose" id="moreview">둘러보기</a>
+                </div>
+            </div>
+        </header>
+        <!-- purpose -->
+        <section id="purpose">
+            <div class="container">
+                <div class="row" data-aos="zoom-in" >
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">Purpose</h2>
+                        <h3 class="section-subheading text-muted">사이트 개발 목적</h3>
+                    </div>
+                </div>
+                <div class="row text-center" data-aos="zoom-in">
+                    <div class="col-md-12">
+                        <span class="fa-stack fa-6x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-info fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">경력기술 / 자기개발</h4>
+                        <p class="text-muted">
+                            해당 사이트는 경력 기술 및 자기개발을 위해 개발 된 사이트 입니다
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about -->
+        <section class="bg-light" id="about">
+            <div class="container">
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">ABOUT</h2>
+                        <h3 class="section-subheading text-muted">저는 이런 사람 입니다</h3>
+                    </div>
+                </div>
+                <div
+                    class="row" style="margin-bottom: 50px" data-aos="zoom-in">
+                    <div class="col-lg-12">
+                        <div class="team-member">
+                            <img alt="" class="mx-auto rounded-jiyong" src="/img/team/face5.jpg">
+                            <h3>김지용 (남/28세)</h3>
+                            <p class="text-muted">
+                                .Net Programmer
+                            </p>
+                            <p class="text-muted">
+                                .Net 사용한 병원장비 인터페이스 프로그램 개발 및 유지보수를 주로 하고 있습니다.
+                            </p>
+                            <p class="text-muted">
+                                VisualBasic.net / C# / Winform / WPF / WCF / Webservice 등 응용프로그램 전반적 개발을 담당하고 있습니다.
+                            </p>
+                            <p class="text-muted">
+                                취미로 Spring MVC, SpringBoot를 사용한 웹 개발을 하고 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 50px" >
+                        <div class="col-4 col-sm-4 col-md-2 col-lg-2 instagram-item" th:each="obj : ${instagramList}" data-aos="zoom-in">
+                            <a class="instagram-link" th:href="${obj.link}">
+                                <div style="border: 7px solid #fff; border-radius: 1em" class="instagram-hover">
+                                    <div class="instagram-hover-content">
+                                        <i class="fab fa-instagram fa-2x"></i>
+                                    </div>
+                                </div>
+                                <img style="border: 7px solid #fff; border-radius: 1em" alt="" class="img-fluid" th:src="${obj.imgPath}">
+                            </a>                           
+                        </div>
+                </div>                
+                
+                <div class="row" style="margin-bottom: 50px" data-aos="zoom-in">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <ul class="list-inline social-buttons">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.instagram.com/jiyong_web/">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <h3 class="section-heading text-uppercase">timeline</h3>
+                        <h3 class="section-subheading text-muted">삶</h3>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-lg-12">
+                        <ul class="timeline">
+                            <li data-aos="zoom-in">
+                                <div class="timeline-image">
+                                    <img alt="" class="rounded-circle img-fluid mx-auto" src="https://media.giphy.com/media/xTkcEzpX7TV5HQXhF6/giphy.gif" style="width:100%; height:100%">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>1992년 3월 1일</h4>
+                                        <h4 class="subheading">출생</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">
+                                            1992년 3월 1일 출생
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted" data-aos="zoom-in">
+                                <div class="timeline-image">
+                                    <img alt="" class="rounded-circle img-fluid mx-auto" src="https://media.giphy.com/media/3oEdv3jDLP7XcpL2Wk/giphy.gif" style="width:100%; height:100%">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>2015년 2월</h4>
+                                        <h4 class="subheading">졸업</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">
+                                            삼육보건대학교 의료정보시스템과 졸업
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li data-aos="zoom-in">
+                                <div class="timeline-image">
+                                    <img alt="" class="rounded-circle img-fluid" src="https://media.giphy.com/media/hOzfvZynn9AK4/giphy.gif" style="width:100%; height:100%">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>2015년 6월</h4>
+                                        <h4 class="subheading">취업</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">
+                                            병원 솔루션 업체 에이씨케이에 입사
+                                        </p>
+                                        <p class="text-muted">
+                                            병원 장비 EMR 인터페이스 프로그램 개발 및 유지보수
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted" data-aos="zoom-in">
+                                <div class="timeline-image">
+                                    <img alt="" class="rounded-circle img-fluid" src="https://media.giphy.com/media/16fUAJDSRlUkw/giphy.gif" style="width:100%; height:100%">
+                                </div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>2019년 1월 3일</h4>
+                                        <h4 class="subheading">플레티넘 돌파</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">
+                                            2019년 1월 3일 위도우메이커 장인 김지용님이 플레티넘 계급돌파에 성공하셨습니다. ^_^
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="timeline-inverted"  data-aos="zoom-in">
+                                <div class="timeline-image">
+                                    <h4>To<br>be<br>
+                                        continued..</h4>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services -->
+        <section id="tools">
+            <div class="container">
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">Tools</h2>
+                        <h3 class="section-subheading text-muted">사이트 개발 환경</h3>
+                    </div>
+                </div>
+                <div class="row text-center" >
+                    <div class="col-md-6" data-aos="zoom-in">
+                        <span class="fa-stack fa-6x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-wrench fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">개발 툴</h4>
+                        <p class="text-muted">
+                            Spring Tool Suite (v3.9.6.RELEASE)
+                        </p>
+                    </div>
+                    <div class="col-md-6" data-aos="zoom-in">
+                        <span class="fa-stack fa-6x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-database fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">데이터베이스</h4>
+                        <p class="text-muted">
+                            H2 Database with JPA
+                        </p>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6" data-aos="zoom-in">
+                        <span class="fa-stack fa-6x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">프레임워크</h4>
+                        <p class="text-muted">
+                            SpringBoot (v2.1.1.RELEASE) , Gradle
+                        </p>
+                        <p class="text-muted">
+                            Thymeleaf , BootStrap
+                        </p>
+                        <p class="text-muted">
+                            <a href="https://startbootstrap.com/template-overviews/agency/">BootStrap Agency theme</a>
+                        </p>
+                    </div>
+                    <div class="col-md-6" data-aos="zoom-in">
+                        <span class="fa-stack fa-6x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-globe fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">호스팅</h4>
+                        <p class="text-muted">
+                            Amazon EC2 (t2.micro windows instance)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid -->
+        <section class="bg-light" id="portfolio">
+            <div class="container">
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">Portfolio</h2>
+                        <h3 class="section-subheading text-muted">그동안의 업무내역</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 portfolio-item" th:each="obj : ${portfolioList}" data-aos="zoom-in">
+                        <a class="portfolio-link" data-toggle="modal" th:href="|#portfolioModal${obj.id}|">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content">
+                                    <i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img alt="" class="img-fluid" th:src="|/upload/portfolio/${obj.thumbnailPath}|">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4 th:text="${obj.mainTitle}">Threads</h4>
+                            <p class="text-muted" th:text="${obj.subTitle}">
+                                Illustration
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Clients
+            <section class="py-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                      <img class="img-fluid d-block mx-auto" src="/img/logos/envato.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                      <img class="img-fluid d-block mx-auto" src="/img/logos/designmodo.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                      <img class="img-fluid d-block mx-auto" src="/img/logos/themeforest.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                      <img class="img-fluid d-block mx-auto" src="/img/logos/creative-market.jpg" alt="">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+         -->
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">home</h2>
+                        <h3 class="section-subheading text-muted">개발자 서식지</h3>
+                        <div id="map-canvas" style="height: 400px; margin-bottom:5%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">Q&A</h2>
+                        <h3 class="section-subheading text-muted">사이트를 보시고 궁금하신 점이 있으시면 남겨주세요.</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" data-aos="zoom-in">
+                        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input class="form-control" data-validation-required-message="이름을 입력해주세요." id="name" placeholder="이름 *" required="required" type="text">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" data-validation-required-message="이메일주소를 입력주세요." id="email" placeholder="이메일 *" required="required" type="email">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" data-validation-required-message="보내실 말씀을 입력해주세요." id="message" placeholder="이곳에 입력해주세요. *" required="required"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-12 text-center">
+                                    <div id="success"></div>
+                                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">전 송</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" style=" padding-top: 20px;" data-aos="zoom-in">
+                    <div class="col-lg-12 text-center">
+                        <div class="table-responsive">
+                            <table class="table table-dark" id="messageTable">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            이름
+                                        </th>
+                                        <th scope="col">
+                                            이메일
+                                        </th>
+                                        <th scope="col">
+                                            내용
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="obj : ${datalist}">
+                                        <td th:text="${obj.userName}"></td>
+                                        <td th:text="${obj.userMail}"></td>
+                                        <td th:utext="${#strings.replace(#strings.escapeXml(obj.userText),'&#10;','&lt;br&gt;')}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="copyright">Copyright &copy;2018 Jiyong's Web Page</span>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/jiyong_web/">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="list-inline quicklinks">
+                            <li class="list-inline-item">
+                                <a href="javascript:privacyFunction();">Privacy Policy</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" onclick="termsFunction(); return false;">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals -->
+        <!-- Modal 1 -->
+        <div aria-hidden="true" class="portfolio-modal modal fade" role="dialog" tabindex="-1" th:each="portfolio : ${portfolioList}" th:id="|portfolioModal${portfolio.id}|">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <div
+                                    class="modal-body">
+                                    <!-- Project Details Go Here -->
+                                    <h2 class="text-uppercase" th:text="${portfolio.mainTitle}">모달리티 1 프로젝트네임 태그</h2>
+                                    <p class="item-intro text-muted" th:text="${portfolio.subTitle}">
+                                        모달리티 1 프로젝트 설명태그
+                                    </p>
+                                    <div class="carousel slide " data-ride="carousel" th:id="|myCarousel${portfolio.id}|">
+                                        <div class="carousel-inner">
+                                            <div th:class="${iterstat.index}== 0  ? 'carousel-item active':'carousel-item'" th:each="portfolioImg, iterstat : ${portfolio.listPortfolioImg}">
+                                                <img alt="" class="d-block w-100" th:src="|/upload/portfolio/${portfolioImg.getFileName()}|">
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" data-slide="prev" role="button" th:href="|#myCarousel${portfolio.id}|">
+                                            <span aria-hidden="true" class="carousel-control-prev-icon" style="color :grey"></span>
+                                            <span class="sr-only">이전</span>
+                                        </a>
+                                        <a class="carousel-control-next" data-slide="next" role="button" th:href="|#myCarousel${portfolio.id}|">
+                                            <span aria-hidden="true" class="carousel-control-next-icon" style="color :grey"></span>
+                                            <span class="sr-only">다음</span>
+                                        </a>
+                                    </div>
+                                    <ul class="list-inline" style="margin-top:15px">
+                                        <li th:utext="${#strings.replace(#strings.escapeXml(portfolio.content),'&#10;','&lt;br&gt;')}"></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times"></i>
+                                        Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script th:src="@{/js/wow.js}"></script>
+
+        <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+        <!-- Plugin JavaScript -->
+        <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+        <!-- 토스터 임포트 -->
+        <script th:src="@{/js/toastr.js}"></script>
+        <!-- <script th:src="@{/js/serializeObject.js}"></script> -->
+        <!-- Contact form JavaScript -->
+        <script th:src="@{/js/jqBootstrapValidation.js}"></script>
+        <script th:src="@{/js/contact_me.js}"></script>
+        <!-- Custom scripts for this template -->
+        <script th:src="@{/js/agency.min.js}"></script>
+        <!--gmap js 임포트-->
+        <script type="text/javascript">
+            function myMap() {
+                var myLatlng;
+                var map;
+                var marker;
+                <!-- 구글맵에서 좌표값을 얻고 입력해주세요.  -->
+                myLatlng = new google.maps.LatLng(37.708635, 126.855970);
+                var mapOptions = {
+                    zoom: 17, <!--지도 확대, 축소 정도 설정 -->
+                    center: myLatlng,
+                    mapTypeId: google
+                        .maps
+                        .MapTypeId
+                        .ROADMAP,
+                    scrollwheel: false, <!-- 마우스 스크롤 false -->
+                    draggable: false <!-- 마우스 드레그(클릭) false -->
+                };
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                <!-- 위치정보이름 및 위치정보주소 입력하세요. -->
+                var contentString = '<p style="line-height: 20px;">집</p><p>경기도 고양시의 시골마을</p>';
+                var infowindow = new google.maps.InfoWindow({content: contentString});
+                marker = new google.maps.Marker({position: myLatlng, map: map, title: 'Marker'});
+                infowindow.open(map, marker);
+                google
+                    .maps
+                    .event
+                    .addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+            }
+        </script>        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzc2oN97bwknyIy7TPiSDaQdAyPhvsIV4&callback=myMap"></script>
+        <script type="text/javascript">
+            $(window).on('load', function () {
+                $('#loading').fadeOut(800);         
+                
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function popToast(level, msg) {
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-bottom-full-width",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "700",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "700",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                    Command : toastr[level](msg);
+                }
+                $("#testbuttonn").on('click', function () {
+                    popToast("info", "메소드로 호출 토스트");
+                });
+                $("#toastSendButton1").on('click', function () {
+                    popToast("success", '<DIV class="center-block"><img class="center-block" style="width:200px" src="https://media.giphy.com/media/13EOgFTzFfiUM/giphy.gif">&nbsp<p class="text-center">저장성공!!!!</p></DIV>');
+                });
+                $("#toastSendButton2").on('click', function () {
+                    popToast("error", "#toastSendButton2 에러 토스트 호출");
+                });
+                $("#moreview").on('click', function () {
+                    popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%"  src="https://media.giphy.com/media/xUySTwI1AoIbf57QKk/giphy.gif">&nbsp<p class="text-center">출발!!</p></DIV>');
+                    $("#msgSendButton").on('click', function () { // to_ajax();
+                    });
+                    function to_ajax() { // var queryString = $("form[name=messageForm]").serialize() ;
+                        var queryString = JSON.stringify($("form[name=messageForm]").serializeObject());
+                        console.log(queryString);
+                        popToast("info", "전송중..");
+                        $.ajax({
+                            type: 'post',
+                            url: 'insertajax',
+                            data: queryString,
+                            dataType: 'json',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data) {
+                                if (data.resultMessage == "success") {
+                                    popToast("success", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif">&nbsp<p class="text-justify">저장성공!!!!</p></DIV>');
+                                    popToast("info", data.name + "님 의견 감사합니다.");
+                                    $("#messageForm")[0].reset();
+                                    $('#messageTable > tbody:last').append('<tr><td>' + data.name + '</td><td>' + data.email + '</td><td>' + data.text + '</td></tr>');
+                                } else {
+                                    var returnMessage = data.resultMessage;
+                                    popToast("warning", returnMessage);
+                                }
+                            },
+                            error: function (xhr) {
+                                var err = JSON.parse(xhr.responseText);
+                                popToast("warning", err.message);
+                            }
+                        });
+                    }
+                });
+            });
+            function privacyFunction() {
+                popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/dkGhBWE3SyzXW/giphy.gif">&nbsp<p class="text-center">아무것도 없어~~~~~~</p></DIV>');
+            }
+            function termsFunction() {
+                popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/l1J9qrAVNHt1bDi2A/giphy.gif">&nbsp<p class="text-center">여기도없음..^^</p></DIV>');
+            }
+            function pageTopFunction() {
+                popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/3ohhwfZXnlXE0UfFjW/source.gif">&nbsp<p class="text-center">맨위로!!</p></DIV>');
+            }
+        </script>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({appId: '215946862691377', xfbml: true, version: 'v3.2'});
+                FB.AppEvents.logPageView();
+            };
+            (function (d, s, id) {
+                var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+
+        AOS.init({
+        	duration: 1200,
+        });
+        
+		</script>	
+    </body>
+</html>
