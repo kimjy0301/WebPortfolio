@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.WebPortfolio")
-@PropertySource("upload.properties")
+@PropertySource("classpath:upload.properties")
 public class WebPortfolioApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WebPortfolioApplication.class, args);		
