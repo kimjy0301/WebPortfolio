@@ -34,10 +34,10 @@ public class VisitorService {
 					Visitor newVisitor = new Visitor();
 					newVisitor.setIp(reqIp);
 					visitorRepository.save(newVisitor);
-					log.info("IP:" + reqIp + " visit first time");			
+					log.info("IP : " + reqIp + " visit first time");			
 				}
 		}catch(NonUniqueResultException ex) {
-			log.error("IP:" + reqIp + "multiple selected row ");	
+			log.error("IP : " + reqIp + "multiple selected row ");	
 		}
 	}
 

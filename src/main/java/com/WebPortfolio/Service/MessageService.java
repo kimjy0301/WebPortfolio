@@ -39,11 +39,11 @@ public class MessageService {
 			Visitor aVisitor = visitorRepository.findByIp(reqIp);
 			
 			message.setVisitor(aVisitor);
-			
-			log.info("Message Saved by " + reqIp);
+
+			log.info("IP : " + reqIp + " Message Save Success..");	
 			
 		}catch(NonUniqueResultException ex) {
-			log.error("IP:" + reqIp + "multiple selected row ");	
+			log.error("IP : " + reqIp + "multiple selected row ");	
 		}
 	}
 
