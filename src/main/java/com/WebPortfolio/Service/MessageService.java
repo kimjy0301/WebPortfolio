@@ -40,7 +40,7 @@ public class MessageService {
 			
 			message.setVisitor(aVisitor);
 			
-			log.info("Message Saved by" + reqIp);
+			log.info("Message Saved by " + reqIp);
 			
 		}catch(NonUniqueResultException ex) {
 			log.error("IP:" + reqIp + "multiple selected row ");	
