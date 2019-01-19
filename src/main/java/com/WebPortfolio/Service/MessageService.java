@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.WebPortfolio.Bean.IpAdressControl;
 import com.WebPortfolio.Model.Message;
 import com.WebPortfolio.Model.Visitor;
 import com.WebPortfolio.Reporitory.MessageRepository;
@@ -24,6 +25,10 @@ public class MessageService {
 	@Autowired
 	VisitorRepository visitorRepository;
 
+	@Autowired
+	IpAdressControl ipAdressControl;
+	
+	
 	public Iterable<Message> getMessageListTop5ByOrderByIdDesc() {
 		return messageRepository.findTop5ByOrderByIdDesc();
 
@@ -31,7 +36,7 @@ public class MessageService {
 
 	@Transactional
 	public void saveMessage(Message message, HttpServletRequest req) {
-		String reqIp = getIp(req);
+		String reqIp = ipAdressControl.getIp(req);
 		try {
 			
 			messageRepository.save(message);
@@ -47,26 +52,6 @@ public class MessageService {
 		}
 	}
 
-	private String getIp(HttpServletRequest request) {
 
-		String ip = request.getHeader("X-Forwarded-For");
-
-		if (ip == null) {
-			ip = request.getHeader("Proxy-Client-IP");
-		}
-		if (ip == null) {
-			ip = request.getHeader("WL-Proxy-Client-IP"); // 웹로직
-		}
-		if (ip == null) {
-			ip = request.getHeader("HTTP_CLIENT_IP");
-		}
-		if (ip == null) {
-			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-		}
-		if (ip == null) {
-			ip = request.getRemoteAddr();
-		}
-		return ip;
-	}
 
 }
