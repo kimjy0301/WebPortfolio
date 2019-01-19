@@ -32,10 +32,7 @@ import com.WebPortfolio.Service.MessageService;
 import com.WebPortfolio.Service.PortfolioService;
 import com.WebPortfolio.Service.VisitorService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@Slf4j
 public class MainColtollerTests {
 
 	@Mock
