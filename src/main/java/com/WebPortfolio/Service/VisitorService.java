@@ -33,6 +33,7 @@ public class VisitorService {
 				} else {
 					Visitor newVisitor = new Visitor();
 					newVisitor.setIp(reqIp);
+					newVisitor.setCount(1);
 					visitorRepository.save(newVisitor);
 					log.info("IP : " + reqIp + " visit first time");			
 				}

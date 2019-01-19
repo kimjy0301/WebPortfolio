@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.WebPortfolio.Service.InstagramService;
 import com.WebPortfolio.Service.MessageService;
@@ -34,16 +35,18 @@ public class MainController {
 
 
 	@RequestMapping("/")
-	public String home(Model model,HttpServletRequest request) throws JSONException {
+	public ModelAndView home(ModelAndView mav,HttpServletRequest request) throws JSONException {
 		
 		visitorService.saveVisitor(request);
 		
-		model.addAttribute("datalist", messageService.getMessageListTop5ByOrderByIdDesc());
-		model.addAttribute("portfolioList", portfolioService.getPortfolioList());
-		model.addAttribute("portfolioPath", portfolioPath);		
-		model.addAttribute("instagramList",instagramService.getIntagramList());
+		mav.setViewName("index");
+		
+		mav.addObject("datalist", messageService.getMessageListTop5ByOrderByIdDesc());
+		mav.addObject("portfolioList", portfolioService.getPortfolioList());
+		mav.addObject("portfolioPath", portfolioPath);		
+		mav.addObject("instagramList",instagramService.getIntagramList());
 
-		return "index";
+		return mav;
 	}
 
 	@RequestMapping("/index")
