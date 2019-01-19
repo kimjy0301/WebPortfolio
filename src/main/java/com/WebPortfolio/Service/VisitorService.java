@@ -50,7 +50,7 @@ public class VisitorService {
 				newVisitor.setIp(reqIp);
 				newVisitor.setCount(1);
 				visitorRepository.save(newVisitor);
-				log.info("IP : " + reqIp + " visit first time");
+				log.info("IP : " + reqIp + " Visit first time");
 			}
 		} catch (NonUniqueResultException ex) {
 			log.error("IP : " + reqIp + "multiple selected row ");
