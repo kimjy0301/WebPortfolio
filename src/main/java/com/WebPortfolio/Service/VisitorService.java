@@ -25,6 +25,17 @@ public class VisitorService {
 	@Transactional
 	public void saveVisitor(HttpServletRequest request) {
 
+		Integer integer = (Integer) request.getSession().getAttribute("hitCounter"); // create session if not exists and
+		// get attribute
+		if (integer == null) {
+			integer = 0;
+			integer++;
+			request.getSession().setAttribute("hitCounter", integer); // replace session attribute
+		} else {
+			integer++;
+			request.getSession().setAttribute("hitCounter", integer); // replace session attribute
+		}
+
 		String reqIp = ipAdressControl.getIp(request);
 		Visitor searchVisitor;
 		try {

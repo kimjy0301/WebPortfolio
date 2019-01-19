@@ -20,31 +20,30 @@ public class MainController {
 
 	@Autowired
 	InstagramService instagramService;
-	
-	@Autowired
-	PortfolioService portfolioService;
-	
-	@Autowired
-	MessageService messageService;	
 
 	@Autowired
-	VisitorService visitorService;	
-	
+	PortfolioService portfolioService;
+
+	@Autowired
+	MessageService messageService;
+
+	@Autowired
+	VisitorService visitorService;
+
 	@Value("${upload.portfolioPath}")
 	String portfolioPath;
 
-
 	@RequestMapping("/")
-	public ModelAndView home(ModelAndView mav,HttpServletRequest request) throws JSONException {
+	public ModelAndView home(ModelAndView mav, HttpServletRequest request) throws JSONException {
 		
 		visitorService.saveVisitor(request);
-		
+
 		mav.setViewName("index");
-		
+
 		mav.addObject("datalist", messageService.getMessageListTop5ByOrderByIdDesc());
 		mav.addObject("portfolioList", portfolioService.getPortfolioList());
-		mav.addObject("portfolioPath", portfolioPath);		
-		mav.addObject("instagramList",instagramService.getIntagramList());
+		mav.addObject("portfolioPath", portfolioPath);
+		mav.addObject("instagramList", instagramService.getIntagramList());
 
 		return mav;
 	}
