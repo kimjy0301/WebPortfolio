@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -37,11 +38,11 @@ public class InstagramServiceTests {
 			tmpInstagram.setLike(i);		
 			tmpResults.add(tmpInstagram);
 			
-			
 		}
 		
+		MockitoAnnotations.initMocks(this);
 		
-
+		
 		when(instagramService.getIntagramList()).thenReturn(tmpResults);
 
 	}

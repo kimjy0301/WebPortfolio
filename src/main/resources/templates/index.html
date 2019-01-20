@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="utf-8">        
-        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">	
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         <meta content="" name="description">
         <meta content="" name="author">
         <title>KimJiYong's Private Web</title>
         <!-- Bootstrap core CSS   -->
-        <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+        <link
+        rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
         <!-- Custom fonts for this template -->
         <link rel="stylesheet" th:href="@{/vendor/fontawesome-free/css/all.min.css}" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Jua&amp;subset=korean" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link
+        href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
         <!-- Custom styles for this template -->
         <link rel="stylesheet" th:href="@{/css/agency.min.css}">
         <link rel="stylesheet" th:href="@{/css/toastr.css}"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <style></style>
     </head>
     <div id="loading">
@@ -28,7 +30,8 @@
             <p class="text-center" id="loading-text">Loading..</p>
         </div>
     </div>
-    <body id="page-top">
+    <body
+        id="page-top">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -76,7 +79,7 @@
         <!-- purpose -->
         <section id="purpose">
             <div class="container">
-                <div class="row" data-aos="zoom-in" >
+                <div class="row" data-aos="zoom-in">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading text-uppercase">Purpose</h2>
                         <h3 class="section-subheading text-muted">사이트 개발 목적</h3>
@@ -105,8 +108,7 @@
                         <h3 class="section-subheading text-muted">저는 이런 사람 입니다</h3>
                     </div>
                 </div>
-                <div
-                    class="row" style="margin-bottom: 50px" data-aos="zoom-in">
+                <div class="row" data-aos="zoom-in" style="margin-bottom: 50px">
                     <div class="col-lg-12">
                         <div class="team-member">
                             <img alt="" class="mx-auto rounded-jiyong" src="/img/team/face5.jpg">
@@ -126,48 +128,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-bottom: 50px" >
-                        <div class="col-4 col-sm-4 col-md-2 col-lg-2 instagram-item" th:each="obj : ${instagramList}" data-aos="zoom-in">
-                            <a class="instagram-link" th:href="${obj.link}">
-                                <div style="border: 7px solid #fff; border-radius: 1em" class="instagram-hover">
-                                    <div class="instagram-hover-content">
-                                        <i class="fab fa-instagram fa-2x"></i>
-                                    </div>
+                <div class="row" style="margin-bottom: 50px">
+                    <div class="col-4 col-sm-4 col-md-2 col-lg-2 instagram-item" data-aos="zoom-in" th:each="obj : ${instagramList}">
+                        <a class="instagram-link" th:href="${obj.link}">
+                            <div class="instagram-hover" style="border: 7px solid #fff; border-radius: 1em">
+                                <div class="instagram-hover-content">
+                                    <i class="fab fa-instagram fa-2x"></i>
                                 </div>
-                                <img style="border: 7px solid #fff; border-radius: 1em" alt="" class="img-fluid" th:src="${obj.imgPath}">
-                            </a>                           
-                        </div>
-                </div>                
-                
-                <div class="row" style="margin-bottom: 50px" data-aos="zoom-in">
-                        <div class="col-lg-8 mx-auto text-center">
-                            <ul class="list-inline social-buttons">
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="https://www.instagram.com/jiyong_web/">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            </div>
+                            <img alt="" class="img-fluid" style="border: 7px solid #fff; border-radius: 1em" th:src="${obj.imgPath}">
+                        </a>
+                    </div>
                 </div>
-                
+                <div class="row" data-aos="zoom-in" style="margin-bottom: 50px">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <ul class="list-inline social-buttons">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/jiyong_web/">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row" data-aos="zoom-in">
                     <div class="col-lg-12 text-center">
                         <h3 class="section-heading text-uppercase">timeline</h3>
                         <h3 class="section-subheading text-muted">삶</h3>
                     </div>
                 </div>
-                <div class="row" >
+                <div class="row">
                     <div class="col-lg-12">
                         <ul class="timeline">
                             <li data-aos="zoom-in">
@@ -237,7 +237,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="timeline-inverted"  data-aos="zoom-in">
+                            <li class="timeline-inverted" data-aos="zoom-in">
                                 <div class="timeline-image">
                                     <h4>To<br>be<br>
                                         continued..</h4>
@@ -257,7 +257,7 @@
                         <h3 class="section-subheading text-muted">사이트 개발 환경</h3>
                     </div>
                 </div>
-                <div class="row text-center" >
+                <div class="row text-center">
                     <div class="col-md-6" data-aos="zoom-in">
                         <span class="fa-stack fa-6x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -319,7 +319,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 portfolio-item" th:each="obj : ${portfolioList}" data-aos="zoom-in">
+                    <div class="col-md-4 col-sm-6 portfolio-item" data-aos="zoom-in" th:each="obj : ${portfolioList}">
                         <a class="portfolio-link" data-toggle="modal" th:href="|#portfolioModal${obj.id}|">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content">
@@ -338,34 +338,6 @@
                 </div>
             </div>
         </section>
-        <!-- Clients
-            <section class="py-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                      <img class="img-fluid d-block mx-auto" src="/img/logos/envato.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                      <img class="img-fluid d-block mx-auto" src="/img/logos/designmodo.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                      <img class="img-fluid d-block mx-auto" src="/img/logos/themeforest.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="col-md-3 col-sm-6">
-                    <a href="#">
-                      <img class="img-fluid d-block mx-auto" src="/img/logos/creative-market.jpg" alt="">
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-         -->
         <!-- Contact -->
         <section id="contact">
             <div class="container">
@@ -413,7 +385,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="row" style=" padding-top: 20px;" data-aos="zoom-in">
+                <div class="row" data-aos="zoom-in" style=" padding-top: 20px;">
                     <div class="col-lg-12 text-center">
                         <div class="table-responsive">
                             <table class="table table-dark" id="messageTable">
@@ -532,157 +504,22 @@
         </div>
         <!-- Bootstrap core JavaScript -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
-        <script th:src="@{/js/wow.js}"></script>
-
         <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
         <!-- Plugin JavaScript -->
         <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
         <!-- 토스터 임포트 -->
         <script th:src="@{/js/toastr.js}"></script>
-        <!-- <script th:src="@{/js/serializeObject.js}"></script> -->
         <!-- Contact form JavaScript -->
         <script th:src="@{/js/jqBootstrapValidation.js}"></script>
         <script th:src="@{/js/contact_me.js}"></script>
         <!-- Custom scripts for this template -->
         <script th:src="@{/js/agency.min.js}"></script>
         <!--gmap js 임포트-->
-        <script type="text/javascript">
-            function myMap() {
-                var myLatlng;
-                var map;
-                var marker;
-                <!-- 구글맵에서 좌표값을 얻고 입력해주세요.  -->
-                myLatlng = new google.maps.LatLng(37.708635, 126.855970);
-                var mapOptions = {
-                    zoom: 17, <!--지도 확대, 축소 정도 설정 -->
-                    center: myLatlng,
-                    mapTypeId: google
-                        .maps
-                        .MapTypeId
-                        .ROADMAP,
-                    scrollwheel: false, <!-- 마우스 스크롤 false -->
-                    draggable: false <!-- 마우스 드레그(클릭) false -->
-                };
-                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-                <!-- 위치정보이름 및 위치정보주소 입력하세요. -->
-                var contentString = '<p style="line-height: 20px;">집</p><p>경기도 고양시의 시골마을</p>';
-                var infowindow = new google.maps.InfoWindow({content: contentString});
-                marker = new google.maps.Marker({position: myLatlng, map: map, title: 'Marker'});
-                infowindow.open(map, marker);
-                google
-                    .maps
-                    .event
-                    .addListener(marker, 'click', function () {
-                        infowindow.open(map, marker);
-                    });
-            }
-        </script>        
+        <script th:src="@{/js/myMap.js}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzc2oN97bwknyIy7TPiSDaQdAyPhvsIV4&callback=myMap"></script>
-        <script type="text/javascript">
-            $(window).on('load', function () {
-                $('#loading').fadeOut(800);         
-                
-            });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                function popToast(level, msg) {
-                    toastr.options = {
-                        "closeButton": false,
-                        "debug": false,
-                        "newestOnTop": false,
-                        "progressBar": false,
-                        "positionClass": "toast-bottom-full-width",
-                        "preventDuplicates": false,
-                        "onclick": null,
-                        "showDuration": "300",
-                        "hideDuration": "700",
-                        "timeOut": "3000",
-                        "extendedTimeOut": "700",
-                        "showEasing": "swing",
-                        "hideEasing": "linear",
-                        "showMethod": "fadeIn",
-                        "hideMethod": "fadeOut"
-                    }
-                    Command : toastr[level](msg);
-                }
-                $("#testbuttonn").on('click', function () {
-                    popToast("info", "메소드로 호출 토스트");
-                });
-                $("#toastSendButton1").on('click', function () {
-                    popToast("success", '<DIV class="center-block"><img class="center-block" style="width:200px" src="https://media.giphy.com/media/13EOgFTzFfiUM/giphy.gif">&nbsp<p class="text-center">저장성공!!!!</p></DIV>');
-                });
-                $("#toastSendButton2").on('click', function () {
-                    popToast("error", "#toastSendButton2 에러 토스트 호출");
-                });
-                $("#moreview").on('click', function () {
-                    popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%"  src="https://media.giphy.com/media/xUySTwI1AoIbf57QKk/giphy.gif">&nbsp<p class="text-center">출발!!</p></DIV>');
-                    $("#msgSendButton").on('click', function () { // to_ajax();
-                    });
-                    function to_ajax() { // var queryString = $("form[name=messageForm]").serialize() ;
-                        var queryString = JSON.stringify($("form[name=messageForm]").serializeObject());
-                        console.log(queryString);
-                        popToast("info", "전송중..");
-                        $.ajax({
-                            type: 'post',
-                            url: 'insertajax',
-                            data: queryString,
-                            dataType: 'json',
-                            contentType: 'application/json;charset=UTF-8',
-                            success: function (data) {
-                                if (data.resultMessage == "success") {
-                                    popToast("success", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif">&nbsp<p class="text-justify">저장성공!!!!</p></DIV>');
-                                    popToast("info", data.name + "님 의견 감사합니다.");
-                                    $("#messageForm")[0].reset();
-                                    $('#messageTable > tbody:last').append('<tr><td>' + data.name + '</td><td>' + data.email + '</td><td>' + data.text + '</td></tr>');
-                                } else {
-                                    var returnMessage = data.resultMessage;
-                                    popToast("warning", returnMessage);
-                                }
-                            },
-                            error: function (xhr) {
-                                var err = JSON.parse(xhr.responseText);
-                                popToast("warning", err.message);
-                            }
-                        });
-                    }
-                });
-            });
-            function privacyFunction() {
-                popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/dkGhBWE3SyzXW/giphy.gif">&nbsp<p class="text-center">아무것도 없어~~~~~~</p></DIV>');
-            }
-            function termsFunction() {
-                popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/l1J9qrAVNHt1bDi2A/giphy.gif">&nbsp<p class="text-center">여기도없음..^^</p></DIV>');
-            }
-            function pageTopFunction() {
-                popToast("info", '<DIV class="center-block"><img class="center-block" style="width:100%" src="https://media.giphy.com/media/3ohhwfZXnlXE0UfFjW/source.gif">&nbsp<p class="text-center">맨위로!!</p></DIV>');
-            }
-        </script>
-        <script>
-            window.fbAsyncInit = function () {
-                FB.init({appId: '215946862691377', xfbml: true, version: 'v3.2'});
-                FB.AppEvents.logPageView();
-            };
-            (function (d, s, id) {
-                var js,
-                    fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
-
-        AOS.init({
-        	duration: 1200,
-        });
-        
-		</script>	
+            AOS.init({duration: 1200});
+        </script>
     </body>
 </html>
