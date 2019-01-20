@@ -114,3 +114,17 @@ $(document).ready(function () {
                 $('#loading').fadeOut(800);         
                 
             });
+            
+            
+            $( document ).ajaxStop(function() {
+            	$('#loading').fadeOut(2000); //ajax종료시 로딩바를 숨겨준다.
+            	});
+            
+            $( document ).ajaxStart(function() {
+            	$('#loading').fadeIn(300); //ajax실행시 로딩바를 보여준다.
+            	});
+            
+            
+            
+            
+            
