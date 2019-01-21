@@ -304,7 +304,7 @@
         var client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
 
         // 2. connection이 맺어지면 실행된다.
-        client.connect({}, function () {
+        client.connect({callUser : 'client'}, function () {
 
         });
 
@@ -325,19 +325,19 @@
             var message = messageInput.val();
 
         	var room = roomId.val();
-            client.send('/publish/chat/message', {}, JSON.stringify({chatRoomId: room, message: message, writer: room}));
+            client.send('/publish/chat/message', {callUser : 'server'}, JSON.stringify({chatRoomId: room, message: message, writer: room}));
             messageInput.val('');
         });
         
         createBtn.click(function () {
         	var message = roomId.val();
-            client.send('/publish/chat/server', {}, JSON.stringify({roomName: message})); 
+            client.send('/publish/chat/create', {}, JSON.stringify({roomName: message})); 
             
             
             client.subscribe('/subscribe/chat/room/' + message, function (chat) {
                 var content = JSON.parse(chat.body);
                 chatBox.append('<div class="outgoing_msg"><div class="sent_msg"><p>' + content.message +'</p><span class="time_date"> 11:01 AM    |    June 9</span></div></div>')
-            });
+            }, {callUser : 'client'});
             
     		
   		

@@ -29,9 +29,14 @@ public class ChatMessageController {
 		template.convertAndSend("/subscribe/chat/room/" + message.getChatRoomId(), message);
 	}
 
-	@MessageMapping("/chat/server")
+	@MessageMapping("/chat/create")
 	public void create(Room room) {
-		template.convertAndSend("/subscribe/chat/server", room);
+		template.convertAndSend("/subscribe/chat/create", room);
 	}
+	@MessageMapping("/chat/delete")
+	public void delete(Room room) {
+		template.convertAndSend("/subscribe/chat/delete", room);
+	}
+	
 
 }
