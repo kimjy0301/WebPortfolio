@@ -52,4 +52,16 @@ public class MainController {
 	public String index2(Model model) {
 		return "index";
 	}
+	
+	@RequestMapping("/client")
+	public String client(Model model) {
+		return "chatclient";
+	}
+	
+	@RequestMapping("/server")
+	public String server(Model model) {
+		return "chatserver";
+	}
+	
+	
 }

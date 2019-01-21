@@ -77,7 +77,10 @@ dependencies {
 	testCompile("org.springframework.boot:spring-boot-starter-test"){
 	exclude group: "com.vaadin.external.google", module:"android-json"}
 	
-
+    compile("org.springframework.boot:spring-boot-starter-websocket")
+    compile("org.webjars:webjars-locator-core")
+    compile("org.webjars:sockjs-client:1.0.2")
+    compile("org.webjars:stomp-websocket:2.3.3")
 }
 
 
