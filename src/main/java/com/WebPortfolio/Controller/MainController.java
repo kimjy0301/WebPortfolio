@@ -1,5 +1,7 @@
 package com.WebPortfolio.Controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONException;
@@ -14,6 +16,7 @@ import com.WebPortfolio.Service.InstagramService;
 import com.WebPortfolio.Service.MessageService;
 import com.WebPortfolio.Service.PortfolioService;
 import com.WebPortfolio.Service.VisitorService;
+import com.WebPortfolio.WebSocket.ChatService;
 
 @Controller
 public class MainController {
@@ -29,13 +32,15 @@ public class MainController {
 
 	@Autowired
 	VisitorService visitorService;
+	@Autowired
+	ChatService chatService;
 
 	@Value("${upload.portfolioPath}")
 	String portfolioPath;
 
 	@RequestMapping("/")
 	public ModelAndView home(ModelAndView mav, HttpServletRequest request) throws JSONException {
-		
+
 		visitorService.saveVisitor(request);
 
 		mav.setViewName("index");
@@ -52,16 +57,22 @@ public class MainController {
 	public String index2(Model model) {
 		return "index";
 	}
-	
+
 	@RequestMapping("/client")
 	public String client(Model model) {
 		return "chatclient";
 	}
-	
+
 	@RequestMapping("/server")
 	public String server(Model model) {
+		
+		
+		HashMap<String,String> list = chatService.getChat();
+		model.addAttribute("userMap",list);	
+
+		
+		
 		return "chatserver";
 	}
-	
-	
+
 }

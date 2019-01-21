@@ -30,9 +30,8 @@ public class StompSessionConnectedEventListener implements ApplicationListener<S
 		LinkedList<String> linkedlist = nativeHeaders.get("callUser");
 		if (linkedlist != null) {
 			String user = linkedlist.getFirst();
-
 			if (!user.equals("server")) {
-				//클라이언트 접속만 채팅방 추가
+				// 클라이언트 접속만 채팅방 추가
 				chatService.chatAdd(headerAccessor.getSessionId());
 			}
 		}

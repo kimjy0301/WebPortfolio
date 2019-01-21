@@ -17,39 +17,29 @@ public class StompSubscribeEventListener implements ApplicationListener<SessionS
 
 	@Autowired
 	ChatService chatService;
-		
+
 	@Override
 	public void onApplicationEvent(SessionSubscribeEvent sessionSubscribeEvent) {
-		
+
 		StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(sessionSubscribeEvent.getMessage());
-		
+
 		String simpSessionId = headerAccessor.getSessionId();
 		String destination = headerAccessor.getDestination();
-		
-		
+
+		@SuppressWarnings("rawtypes")
 		LinkedMultiValueMap generic = (LinkedMultiValueMap) headerAccessor.getHeader("nativeHeaders");
+		@SuppressWarnings("unchecked")
 		LinkedList<String> linkedlist = (LinkedList<String>) generic.get("callUser");
-		
-		
+
 		if (linkedlist != null) {
 			String user = linkedlist.getFirst();
-
 			if (!user.equals("server")) {
-				//클라이언트 접속만 채팅방 추가
+				// 클라이언트 접속만 구독 추가
 				chatService.subsRoom(simpSessionId, destination);
-				
 			}
 		}
-		
-		
-		
-		
-		
-	
-		
-		
 
 		log.info(headerAccessor.toString());
-		
+
 	}
 }

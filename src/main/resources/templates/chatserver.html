@@ -246,6 +246,12 @@
 <div class="content">
     <input name="roomName">
     <button class="connect">연결</button>
+
+    <div th:each="key: ${userMap.keySet()}">
+    <li th:text="${key}"></li><button class="connect">연결</button>
+    </div>
+
+
     
     <ul class="chat_box">
     </ul>
