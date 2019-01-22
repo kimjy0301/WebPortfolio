@@ -66,12 +66,17 @@ public class MainController {
 	@RequestMapping("/server")
 	public String server(Model model) {
 		
-		
-		HashMap<String,String> list = chatService.getChat();
-		model.addAttribute("userMap",list);	
 
-		
-		
+		HashMap<String,String> returnMap = new HashMap<String,String>();
+		HashMap<String,String> list = chatService.getChat();
+		for (String key : list.keySet()) {
+			
+			String val = list.get(key);
+			if (!val.equals("")) {
+				returnMap.put(key, val);				
+			}
+		}		
+		model.addAttribute("userMap",returnMap);	
 		return "chatserver";
 	}
 

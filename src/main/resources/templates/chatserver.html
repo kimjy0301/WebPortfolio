@@ -178,7 +178,7 @@
 .mesgs{
 	float: left;
 	padding: 30px 15px 0 25px;
-	width:70%;
+	width:90%;
 }
 
 .sent_msg p {
@@ -243,49 +243,61 @@
 </head>
 <body>
 <h1>채팅방목록</h1>
-<div class="content">
-    <input name="roomName">
-    <button class="connect">연결</button>
-
-    <div th:each="key: ${userMap.keySet()}">
-    <li th:text="${key}"></li><button class="connect">연결</button>
-    </div>
-
-
     
-    <ul class="chat_box">
-    </ul>
-    <input name="message">
-    <button class="send">보내기</button>    
+<div class="chatList">
+<div th:each="key : ${userMap.keySet()}" th:class="${key}" style="margin-top:50px;width: 100%;height: 100%" >
+	<div class="content">
+      <button th:id="${userMap.get(key)}" class="connectBtn">접속</button>
+  	  <button class="closeBtn" style="display: none;">종료</button>
+  	  <h3 th:text="|Session ID = ${key}|"></h3> 
+  	  <h3 th:text="|Subscribe ID = ${userMap.get(key)}|"></h3>    
+	</div>
+  <div th:class="${userMap.get(key)}" style="display: none;">
+	<div class="inbox_msg">
+	<div class="mesgs">
+	  <div th:id="|msg_${key}|" class="msg_history">	
+	  </div>
+	  <div class="type_msg">
+		<div class="input_msg_write">
+		  <input type="text" class="write_msg" placeholder="Type a message" />
+		  <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  </div>
+</div>
 </div>
 
 <script>
+
+$(document).ready(function(){
+	var client;
     $(function () {
         var sendBtn = $('.send');
-        var connectBtn = $('.connect');
+        var connectBtn = $('.connectBtn');
+        var closeBtn = $('.closeBtn');
         var roomId = $('.content').data('roomName');
-        var chatBox = $('.chat_box');
+        var chatBox =  $('.msg_history');
+        var chatList = $('.chatList');
         
         var sock = new SockJS("/stomp-chat");
-        var client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
-
-        // 2. connection이 맺어지면 실행된다.
+        client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
+        
         client.connect({callUser : 'server'}, function () {
-            // 3. send(path, header, message)로 메시지를 보낼 수 있다.
-           // client.send('/publish/chat/join', {}, JSON.stringify({chatRoomId: roomId, writer: member})); 
-            // 4. subscribe(path, callback)로 메시지를 받을 수 있다. callback 첫번째 파라미터의 body로 메시지의 내용이 들어온다.
             client.subscribe('/subscribe/chat/create', function (room) {
                 var content = JSON.parse(room.body);
-                chatBox.append('<li>' + content.roomName + '</li><button class="connect">연결</button>')
+                var sessionId = content.sessionId;
+                var subscribeId = content.roomName;                
+                chatList.append('<div class='+sessionId+' style="margin-top:50px;width: 100%;height: 100%" ><div class="content"><button id="' + subscribeId + '" class="connectBtn">접속</button><button class="closeBtn" style="display: none;">종료</button><h3>Session ID = ' + sessionId + '</h3><h3>Subscribe ID = ' + subscribeId + '</h3></div><div class="' + subscribeId + '" style="display: none;"><div class="inbox_msg"><div class="mesgs"><div id="msg_' + sessionId + '" class="msg_history"></div><div class="type_msg"><div class="input_msg_write"><input type="text" class="write_msg" placeholder="Type a message" /><button class="msg_send_btn" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button></div></div></div></div></div></div>')
             } , {callUser : 'server'});
             client.subscribe('/subscribe/chat/delete', function (room) {
                 var content = JSON.parse(room.body);
-                chatBox.append('<li>' + content.roomName + '</li><button class="connect">연결</button>')
+              	var sessionId = content.sessionId;
+              	
+                $('.' + sessionId).remove();                
+                
             }, {callUser : 'server'});
-            
-            
-            
-            
         });
 
         sendBtn.click(function () {
@@ -294,6 +306,74 @@
         
         
     });
+        $(document).on("click",".connectBtn",function(event){
+        	
+        
+        	// 동적으로 여러 태그가 생성된 경우라면 이런식으로 클릭된 객체를 this 키워드를 이용해서 잡아올 수 있다.
+          var subId = ($(this).attr("id"));
+          var sessionId = $(this).parent('div').parent('div').attr("class");   
+          
+          $(this).prop("disabled", true);
+          $('.' + sessionId).children().fadeIn(1000);  
+          
+          client.subscribe(subId, function (chat) {
+              var content = JSON.parse(chat.body);
+              var chatBox =  $('#msg_'+sessionId);
+              
+              var sender = content.writer
+              
+              var Now = new Date();
+
+              var NowTime = Now.getFullYear();
+              NowTime += '-' + Now.getMonth() + 1 ;
+              NowTime += '-' + Now.getDate();
+              NowTime += ' ' + Now.getHours();
+              NowTime += ':' + Now.getMinutes();
+              NowTime += ':' + Now.getSeconds();
+
+              if ( sender == 'client'){   
+              	chatBox.append('<div class="outgoing_msg"><div class="sent_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div>')               	
+              } else if ( sender == 'server'){
+              	chatBox.append('<div class="incoming_msg"><div class="incoming_msg_img"><img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div></div>')               	           	
+              }
+              
+              $(chatBox).scrollTop($(chatBox)[0].scrollHeight);
+              
+              
+          }, {callUser : 'server'});
+        });
+        $(document).on("click",".msg_send_btn",function(event){
+
+        	
+            var subId = $(this).parent('div').parent('div').parent('div').parent('div').parent('div').attr("class");        
+
+            var messageInput = $(this).parent('div').children('input')
+            
+            var text = messageInput.val();  
+            
+            var chatId = subId.replace('/subscribe/chat/room/', '/publish/chat/message/');
+    
+            client.send(chatId, {callUser : 'server'}, JSON.stringify({chatRoomId: 'server', message: text, writer: 'server'}));
+            messageInput.val('');
+              
+          });
+        $(document).on("keypress",".write_msg",function(event){
+
+        	var inputThis = $(this);
+        	var sendBtn = $(this).parent('div').children('.msg_send_btn');
+        	
+        	
+              	 var key = event.which;
+              	 if(key == 13)  // the enter key code
+              	  {
+              	    $(sendBtn).click();
+              	    return false;  
+              	  }
+              
+          });
+        
+}); // end of ready()    
+		
 </script>
 </body>
 </html>

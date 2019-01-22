@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class Room {
 	
+	private String sessionId;
 	private String roomName;
 	
 	

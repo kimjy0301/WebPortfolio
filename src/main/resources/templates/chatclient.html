@@ -248,36 +248,18 @@
 </head>
 <body>
 <h1>Web socket stomp chat</h1>
-<div class="content">
-    <input name="roomName">
-    <button class="create">만들기</button>
-    <button class="exit">종료</button>
-    
-    <ul class="chat_box">
-    </ul>
-</div>
+
 
 
 
 <div class="messaging" style="margin-top:50px">
+	<div class="content">
+      <button class="create">접속</button>
+  	  <button class="exit">종료</button>    
+	</div>
   <div class="inbox_msg">
 	<div class="mesgs">
 	  <div class="msg_history">
-		<div class="incoming_msg">
-		  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-		  <div class="received_msg">
-			<div class="received_withd_msg">
-			  <p>Test which is a new approach to have all
-				solutions</p>
-			  <span class="time_date"> 11:01 AM    |    June 9</span></div>
-		  </div>
-		</div>
-		<div class="outgoing_msg">
-		  <div class="sent_msg">
-			<p>Test which is a new approach to have all
-			  solutions</p>
-			<span class="time_date"> 11:01 AM    |    June 9</span> </div>
-		</div>		
 	  </div>
 	  <div class="type_msg">
 		<div class="input_msg_write">
@@ -293,8 +275,8 @@
         var sendBtn = $('.msg_send_btn');
         var createBtn = $('.create');
         var endBtn = $('.exit');
-        
-        var roomId = $('input[name="roomName"]');
+        var result = Math.floor(Math.random() * 10000) + 1;
+        var roomId = result;
         var messageInput = $('.write_msg');
         
         var chatBox =  $('.msg_history');
@@ -309,8 +291,16 @@
         });
 
         
+        function setConnected(connected) {
+            $(".create").prop("disabled", connected);
+            $(".exit").prop("disabled", !connected);          
+        }
+        
+        
+        
         function disconnect() {
             if (client !== null) {
+            	setConnected(false);
             	client.disconnect();
             }
         }
@@ -324,25 +314,56 @@
         sendBtn.click(function () {
             var message = messageInput.val();
 
-        	var room = roomId.val();
-            client.send('/publish/chat/message', {callUser : 'server'}, JSON.stringify({chatRoomId: room, message: message, writer: room}));
+            
+          
+        	var room = roomId;
+        	
+            client.send('/publish/chat/message/' + room, {callUser : 'client'}, JSON.stringify({chatRoomId: room, message: message, writer: 'client'}));
             messageInput.val('');
         });
         
         createBtn.click(function () {
-        	var message = roomId.val();
-            client.send('/publish/chat/create', {}, JSON.stringify({roomName: message})); 
-            
-            
-            client.subscribe('/subscribe/chat/room/' + message, function (chat) {
+        	
+        	if(client.connected == false){
+        		client.connect();
+        	}
+        	
+        	setConnected(true);
+        	
+            client.send('/publish/chat/create', {}, JSON.stringify({roomName: roomId})); 
+            client.subscribe('/subscribe/chat/room/' + roomId, function (chat) {            	
                 var content = JSON.parse(chat.body);
-                chatBox.append('<div class="outgoing_msg"><div class="sent_msg"><p>' + content.message +'</p><span class="time_date"> 11:01 AM    |    June 9</span></div></div>')
+                var sender = content.writer                
+                var Now = new Date();
+
+                var NowTime = Now.getFullYear();
+                NowTime += '-' + Now.getMonth() + 1 ;
+                NowTime += '-' + Now.getDate();
+                NowTime += ' ' + Now.getHours();
+                NowTime += ':' + Now.getMinutes();
+                NowTime += ':' + Now.getSeconds();
+
+                if ( sender == 'client'){   
+                	chatBox.append('<div class="outgoing_msg"><div class="sent_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div>')               	
+                } else if ( sender == 'server'){
+                	chatBox.append('<div class="incoming_msg"><div class="incoming_msg_img"><img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div></div>')               	           	
+                }
+
+                $(chatBox).scrollTop($(chatBox)[0].scrollHeight);
+            
             }, {callUser : 'client'});
             
-    		
-  		
-            
         });
+        
+        $('.write_msg').keypress(function (e) {
+        	 var key = e.which;
+        	 if(key == 13)  // the enter key code
+        	  {
+        	    $('button[class = msg_send_btn]').click();
+        	    return false;  
+        	  }
+        });   
+        
         
         
     });
