@@ -16,6 +16,6 @@ public class StompUnSubscribeEventListener implements ApplicationListener<Sessio
 	@Override
 	public void onApplicationEvent(SessionUnsubscribeEvent sessionUnSubscribeEvent) {
 		StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(sessionUnSubscribeEvent.getMessage());
-		log.info(headerAccessor.toString());
+		
 	}
 }

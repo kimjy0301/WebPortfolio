@@ -27,6 +27,6 @@ public class SessionDisconnectedEventListener implements ApplicationListener<Ses
 
 		chatService.chatRemove(headerAccessor.getSessionId());		
 		
-		log.info(headerAccessor.toString());
+		
 	}
 }

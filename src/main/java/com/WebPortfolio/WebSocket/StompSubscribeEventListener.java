@@ -35,11 +35,11 @@ public class StompSubscribeEventListener implements ApplicationListener<SessionS
 			String user = linkedlist.getFirst();
 			if (!user.equals("server")) {
 				// 클라이언트 접속만 구독 추가
+				log.info("simpSessionId = " + simpSessionId + "destination = " + destination);
 				chatService.subsRoom(simpSessionId, destination);
 			}
 		}
 
-		log.info(headerAccessor.toString());
 
 	}
 }

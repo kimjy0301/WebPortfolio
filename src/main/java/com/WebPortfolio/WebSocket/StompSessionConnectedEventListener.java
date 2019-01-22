@@ -36,6 +36,5 @@ public class StompSessionConnectedEventListener implements ApplicationListener<S
 			}
 		}
 
-		log.info(headerAccessor.toString());
 	}
 }
