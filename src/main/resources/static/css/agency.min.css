@@ -102,6 +102,7 @@
   }
 }
 .chat-modal .modal-content {
+  padding-bottom: 30px;
   text-align: center;
 }
 
