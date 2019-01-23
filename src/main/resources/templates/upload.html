@@ -5,7 +5,7 @@
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         <meta content="" name="description">
         <meta content="" name="author">
-        <title>김지용 사이트</title>
+        <title>포트폴리오 업로드</title>
         <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
         <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
@@ -14,6 +14,11 @@
         <!-- the font awesome icon library if using with `fas` theme (or Bootstrap 4.x). Note that default icons used in the plugin are glyphicons that are bundled only with Bootstrap 3.x. -->
         <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet"> <link rel="stylesheet" th:href="@{/css/agency.min.css}">
         <link rel="stylesheet" th:href="@{/css/toastr.css}"/>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+    
+    
+         
     </head>
     <div class="container">
         <div class="row">
@@ -38,7 +43,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea style="height:500px" class="form-control" data-validation-required-message="내용을 입력해주세요." id="content" name="content" placeholder="이곳에 입력해주세요. *" required="required"></textarea>
+                            <!--     <textarea id="summernote" name="editordata"></textarea> -->
+                                <textarea class="form-control" data-validation-required-message="내용을 입력해주세요." id="content" name="content" placeholder="이곳에 입력해주세요. *" required="required"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -170,5 +176,13 @@
         document.getElementById("fileNum").innerHTML = nFiles;
         document.getElementById("fileSize").innerHTML = sOutput;
     }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#content').summernote({
+        	height: 400
+        });
+    });
     </script>
 </body></html>

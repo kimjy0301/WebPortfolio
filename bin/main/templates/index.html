@@ -490,7 +490,8 @@
                                         </a>
                                     </div>
                                     <ul class="list-inline" style="margin-top:15px">
-                                        <li th:utext="${#strings.replace(#strings.escapeXml(portfolio.content),'&#10;','&lt;br&gt;')}"></li>
+                              <!--           <li th:utext="${#strings.replace(#strings.escapeXml(portfolio.content),'&#10;','&lt;br&gt;')}"></li> -->
+                                        <li th:utext="${portfolio.content}"></li>
                                     </ul>
                                     <button class="btn btn-primary" data-dismiss="modal" type="button">
                                         <i class="fas fa-times"></i>
