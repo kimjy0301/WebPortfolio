@@ -282,21 +282,15 @@
         var chatBox =  $('.msg_history');
         
         var member = "test";
-        var sock = new SockJS("/stomp-chat");
-        var client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
+        var sock;
+        var client;
 
-        // 2. connection이 맺어지면 실행된다.
-        client.connect({callUser : 'client'}, function () {
-
-        });
 
         
         function setConnected(connected) {
             $(".create").prop("disabled", connected);
             $(".exit").prop("disabled", !connected);          
         }
-        
-        
         
         function disconnect() {
             if (client !== null) {
@@ -313,9 +307,6 @@
         
         sendBtn.click(function () {
             var message = messageInput.val();
-
-            
-          
         	var room = roomId;
         	
             client.send('/publish/chat/message/' + room, {callUser : 'client'}, JSON.stringify({chatRoomId: room, message: message, writer: 'client'}));
@@ -323,36 +314,38 @@
         });
         
         createBtn.click(function () {
-        	
-        	if(client.connected == false){
-        		client.connect();
-        	}
-        	
-        	setConnected(true);
-        	
-            client.send('/publish/chat/create', {}, JSON.stringify({roomName: roomId})); 
-            client.subscribe('/subscribe/chat/room/' + roomId, function (chat) {            	
-                var content = JSON.parse(chat.body);
-                var sender = content.writer                
-                var Now = new Date();
+        	sock = new SockJS("/stomp-chat");
+            client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
 
-                var NowTime = Now.getFullYear();
-                NowTime += '-' + Now.getMonth() + 1 ;
-                NowTime += '-' + Now.getDate();
-                NowTime += ' ' + Now.getHours();
-                NowTime += ':' + Now.getMinutes();
-                NowTime += ':' + Now.getSeconds();
+            // 2. connection이 맺어지면 실행된다.
+            client.connect({callUser : 'client'}, function () {
+            	setConnected(true);
+            	
+                client.send('/publish/chat/create', {}, JSON.stringify({roomName: roomId})); 
+                client.subscribe('/subscribe/chat/room/' + roomId, function (chat) {            	
+                    var content = JSON.parse(chat.body);
+                    var sender = content.writer                
+                    var Now = new Date();
 
-                if ( sender == 'client'){   
-                	chatBox.append('<div class="outgoing_msg"><div class="sent_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div>')               	
-                } else if ( sender == 'server'){
-                	chatBox.append('<div class="incoming_msg"><div class="incoming_msg_img"><img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div></div>')               	           	
-                }
+                    var NowTime = Now.getFullYear();
+                    NowTime += '-' + Now.getMonth() + 1 ;
+                    NowTime += '-' + Now.getDate();
+                    NowTime += ' ' + Now.getHours();
+                    NowTime += ':' + Now.getMinutes();
+                    NowTime += ':' + Now.getSeconds();
 
-                $(chatBox).scrollTop($(chatBox)[0].scrollHeight);
+                    if ( sender == 'client'){   
+                    	chatBox.append('<div class="outgoing_msg"><div class="sent_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div>')               	
+                    } else if ( sender == 'server'){
+                    	chatBox.append('<div class="incoming_msg"><div class="incoming_msg_img"><img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div></div>')               	           	
+                    }
+
+                    $(chatBox).scrollTop($(chatBox)[0].scrollHeight);
+                
+                }, {callUser : 'client'});                
+            });
             
-            }, {callUser : 'client'});
-            
+        
         });
         
         $('.write_msg').keypress(function (e) {

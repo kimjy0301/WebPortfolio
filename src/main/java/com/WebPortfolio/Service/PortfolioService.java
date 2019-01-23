@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -54,10 +55,8 @@ public class PortfolioService {
 		 * s3.getObject("jiyong-portfolio", portfolio.getId() + "/" +
 		 * portfolioimg.getFileName(), portfolioPath + portfolioimg.getFileName()); } }
 		 */
-		
-		
-
-		List<Portfolio> list = portfolioReporitory.findAll();
+	
+		List<Portfolio> list = portfolioReporitory.findAll(new Sort(Sort.Direction.ASC, "id"));
 
 		return list;
 	}

@@ -34,7 +34,7 @@ public class Portfolio {
 	@Column
 	private String subTitle;
 
-	@Column(length=1000)
+	@Column(length=5000)
 	private String content;
 
 	@Column
