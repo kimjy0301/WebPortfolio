@@ -10,39 +10,31 @@
         var sock;
         var client;
 
-        function setConnected(connected) {
-        	
+        function setConnected(connected) {        	
         	if (connected == true){
         		$(".create").hide();
         		$(".exit").show();
         	}else{
         		$(".create").show();
         		$(".exit").hide();
-        	}
-            
-        }
-        
+        	}            
+        }        
         function disconnect() {
             if (client !== null) {
             	setConnected(false);
             	client.disconnect();
             }
-        }
-
-        
+        }        
         endBtn.click(function () {
           	 disconnect();
-        });
-        
-        
+        });                
         sendBtn.click(function () {
             var message = messageInput.val();
         	var room = roomId;
         	
             client.send('/publish/chat/message/' + room, {callUser : 'client'}, JSON.stringify({chatRoomId: room, message: message, writer: 'client'}));
             messageInput.val('');
-        });
-        
+        });        
         createBtn.click(function () {
         	sock = new SockJS("/stomp-chat");
             client = Stomp.over(sock); // 1. SockJS를 내부에 들고 있는 client를 내어준다.
@@ -69,12 +61,9 @@
                     } else if ( sender == 'server'){
                     	chatBox.append('<div class="incoming_msg"><div class="incoming_msg_img"><img src="/img/team/face2.jpg" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div></div>')               	           	
                     }
-                    $(chatBox).scrollTop($(chatBox)[0].scrollHeight);
-                
+                    $(chatBox).scrollTop($(chatBox)[0].scrollHeight);                
                 }, {callUser : 'client'});                
             });
-            
-        
         });
         
         $('.write_msg').keypress(function (e) {
@@ -84,8 +73,5 @@
         	    $('button[class = msg_send_btn]').click();
         	    return false;  
         	  }
-        });   
-        
-        
-        
+        });           
     });
