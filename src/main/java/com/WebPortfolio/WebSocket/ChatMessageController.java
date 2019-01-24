@@ -27,6 +27,7 @@ public class ChatMessageController {
 
 	@MessageMapping("/chat/message/{id}")
 	public void room(@DestinationVariable String id, ChatMessage message) {
+		
 		template.convertAndSend("/subscribe/chat/room/" + id, message);
 	}
 

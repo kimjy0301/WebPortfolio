@@ -341,6 +341,13 @@ $(document).ready(function(){
               
               
           }, {callUser : 'server'});
+
+          var chatId = subId.replace('/subscribe/chat/room/', '/publish/chat/message/');
+          client.send(chatId, {callUser : 'server'}, JSON.stringify({chatRoomId: 'server', message: '김지용님이 접속하셨습니다.(여기 만든애)', writer: 'server'}));
+          
+          
+          
+          
         });
         $(document).on("click",".msg_send_btn",function(event){
 

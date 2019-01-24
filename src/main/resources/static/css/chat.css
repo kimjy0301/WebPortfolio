@@ -1,4 +1,4 @@
-  /*---------chat window---------------*/
+/*---------chat window---------------*/
 .container{
     max-width:900px;
 }
@@ -159,6 +159,20 @@
 	width: 57%;
 }
 
+.info_msg p {
+	background: #b3d7ff none repeat scroll 0 0;
+	border-radius: 0 15px 15px 15px;
+	color: #646464;
+	font-size: 14px;
+	margin: 0;
+	padding: 5px 10px 5px 12px;
+	width: 100%;
+}
+
+.info_msg {
+	width: 100%;
+}
+
 .mesgs{
 	float: left;
 	padding: 30px 15px 0 25px;
@@ -219,6 +233,6 @@
 }
 
 .msg_history {
-	height: 300px;
+	height: 516px;
 	overflow-y: auto;
 }

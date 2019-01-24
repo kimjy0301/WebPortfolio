@@ -61,8 +61,18 @@
                     } else if ( sender == 'server'){
                     	chatBox.append('<div class="incoming_msg"><div class="incoming_msg_img"><img src="/img/team/face2.jpg" alt="sunil"></div><div class="received_msg"><div class="received_withd_msg"><p>' + content.message +'</p><span class="time_date">' + NowTime + '</span></div></div></div>')               	           	
                     }
-                    $(chatBox).scrollTop($(chatBox)[0].scrollHeight);                
-                }, {callUser : 'client'});                
+                    $(chatBox).scrollTop($(chatBox)[0].scrollHeight);  
+                   
+                }, {callUser : 'client'});  
+                var Now = new Date();
+
+                var NowTime = Now.getFullYear();
+                NowTime += '-' + Now.getMonth() + 1 ;
+                NowTime += '-' + Now.getDate();
+                NowTime += ' ' + Now.getHours();
+                NowTime += ':' + Now.getMinutes();
+                NowTime += ':' + Now.getSeconds();
+                chatBox.append('<div class="received_msg"><div class="info_msg"><p>채팅 소켓 연결 성공 <br>서버에서 접속하면 대화가 가능합니다. <br>잠시만 기다려주세요. </p><span class="time_date">' + NowTime + '</span></div></div>')               	           	
             });
         });
         

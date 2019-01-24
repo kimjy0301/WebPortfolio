@@ -76,7 +76,9 @@ public class MainController {
 				returnMap.put(key, val);				
 			}
 		}		
-		model.addAttribute("userMap",returnMap);	
+		model.addAttribute("userMap",returnMap);			
+		
+		
 		return "chatserver";
 	}
 
