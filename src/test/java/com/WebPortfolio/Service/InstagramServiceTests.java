@@ -30,29 +30,26 @@ public class InstagramServiceTests {
 	@Before
 	public void setUp() throws Exception {
 		List<Instagram> tmpResults = new ArrayList<Instagram>();
-		
-		for(int i=0;i < 100; i++) {
-			
+
+		for (int i = 0; i < 100; i++) {
+
 			Instagram tmpInstagram = new Instagram();
 			tmpInstagram.setImgPath("testPath" + String.valueOf(i));
-			tmpInstagram.setLike(i);		
+			tmpInstagram.setLike(i);
 			tmpResults.add(tmpInstagram);
-			
+
 		}
-		
+
 		MockitoAnnotations.initMocks(this);
-		
-		
+
 		when(instagramService.getIntagramList()).thenReturn(tmpResults);
 
 	}
 
 	@Test
 	public void getIntagramList() throws Exception {
-
-		results=instagramService.getIntagramList();
+		results = instagramService.getIntagramList();
 		assertEquals(100, results.size());
-		;
 	}
 
 }

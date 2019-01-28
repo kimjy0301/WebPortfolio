@@ -4,26 +4,23 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         <meta content="" name="description">
-        <meta content="" name="author">
-        <title>KimJiYong's Private Web</title>
+        <meta content="" name="author">        
+        <title>KimJiYong's Private Web</title>        
         <!-- Bootstrap core CSS   -->
-        <link
-        rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
         <!-- Custom fonts for this template -->
         <link rel="stylesheet" th:href="@{/vendor/fontawesome-free/css/all.min.css}" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Jua&amp;subset=korean" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link
-        href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
         <!-- Custom styles for this template -->
         <link rel="stylesheet" th:href="@{/css/agency.min.css}">
         <link rel="stylesheet" th:href="@{/css/toastr.css}"/>
         <link rel="stylesheet" th:href="@{/css/chat.css}"/>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <style></style>
     </head>
     <div id="loading">
         <div id="loading-div">
@@ -36,16 +33,16 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-            <span>
-                <a class="navbar-brand js-scroll-trigger" href="#page-top" onclick="pageTopFunction();">Jiyong's Web page
-                </a>
-                <a class="animated jello infinite slow" href="#chatModal" data-toggle="modal" style="display:inline-block;">
-                	<span class="fa-stack fa-1x">
-                    	<i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    	<i class="fas fa-comment fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a>  
-           </span>
+                <span>
+                    <a class="navbar-brand js-scroll-trigger" href="#page-top" onclick="pageTopFunction();">Jiyong's Web page
+                    </a>
+                    <a class="animated jello infinite slow" data-toggle="modal" href="#chatModal" style="display:inline-block;">
+                        <span class="fa-stack fa-1x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-comment fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </span>
                 <button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" data-toggle="collapse" type="button">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -66,8 +63,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                        </li>                        
-                    </ul>       
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -91,7 +88,7 @@
                 <div class="row" data-aos="zoom-in">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading text-uppercase">Purpose</h2>
-                        <h3 class="section-subheading text-muted">사이트 개발 목적</h3>                                               
+                        <h3 class="section-subheading text-muted">사이트 개발 목적</h3>
                     </div>
                 </div>
                 <div class="row text-center" data-aos="zoom-in">
@@ -241,7 +238,7 @@
                                     </div>
                                     <div class="timeline-body">
                                         <p class="text-muted">
-                                            2019년 1월 3일 위도우메이커 장인 김지용님이 플레티넘 계급돌파에 성공하셨습니다. ^_^
+                                            2019년 1월 3일 위도우메이커 장인 김지용 플레티넘 계급돌파 성공
                                         </p>
                                     </div>
                                 </div>
@@ -463,95 +460,91 @@
                 </div>
             </div>
         </footer>
-    <!-- Portfolio Modals -->
-	<!-- Modal 1 -->
-    <div aria-hidden="true" class="portfolio-modal modal fade" role="dialog" tabindex="-1" th:each="portfolio : ${portfolioList}" th:id="|portfolioModal${portfolio.id}|"> <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div
-                            class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase" th:text="${portfolio.mainTitle}">모달리티 1 프로젝트네임 태그</h2>
-                            <p class="item-intro text-muted" th:text="${portfolio.subTitle}">
-                                모달리티 1 프로젝트 설명태그
-                            </p>
-                            <div class="carousel slide " data-ride="carousel" th:id="|myCarousel${portfolio.id}|">
-                                <div class="carousel-inner">
-                                    <div th:class="${iterstat.index}== 0  ? 'carousel-item active':'carousel-item'" th:each="portfolioImg, iterstat : ${portfolio.listPortfolioImg}">
-                                        <img alt="" class="d-block w-100" th:src="|/upload/portfolio/${portfolioImg.getFileName()}|"></div>
+        <!-- Portfolio Modals -->
+        <!-- Modal 1 -->
+        <div aria-hidden="true" class="portfolio-modal modal fade" role="dialog" tabindex="-1" th:each="portfolio : ${portfolioList}" th:id="|portfolioModal${portfolio.id}|">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <div
+                                    class="modal-body">
+                                    <!-- Project Details Go Here -->
+                                    <h2 class="text-uppercase" th:text="${portfolio.mainTitle}">모달리티 1 프로젝트네임 태그</h2>
+                                    <p class="item-intro text-muted" th:text="${portfolio.subTitle}">
+                                        모달리티 1 프로젝트 설명태그
+                                    </p>
+                                    <div class="carousel slide " data-ride="carousel" th:id="|myCarousel${portfolio.id}|">
+                                        <div class="carousel-inner">
+                                            <div th:class="${iterstat.index}== 0  ? 'carousel-item active':'carousel-item'" th:each="portfolioImg, iterstat : ${portfolio.listPortfolioImg}">
+                                                <img alt="" class="d-block w-100" th:src="|/upload/portfolio/${portfolioImg.getFileName()}|"></div>
+                                        </div>
+                                        <a class="carousel-control-prev" data-slide="prev" role="button" th:href="|#myCarousel${portfolio.id}|">
+                                            <span aria-hidden="true" class="carousel-control-prev-icon" style="color :grey"></span>
+                                            <span class="sr-only">이전</span>
+                                        </a>
+                                        <a class="carousel-control-next" data-slide="next" role="button" th:href="|#myCarousel${portfolio.id}|">
+                                            <span aria-hidden="true" class="carousel-control-next-icon" style="color :grey"></span>
+                                            <span class="sr-only">다음</span>
+                                        </a>
                                     </div>
-                                    <a class="carousel-control-prev" data-slide="prev" role="button" th:href="|#myCarousel${portfolio.id}|">
-                                        <span aria-hidden="true" class="carousel-control-prev-icon" style="color :grey"></span>
-                                        <span class="sr-only">이전</span>
-                                    </a>
-                                    <a class="carousel-control-next" data-slide="next" role="button" th:href="|#myCarousel${portfolio.id}|">
-                                        <span aria-hidden="true" class="carousel-control-next-icon" style="color :grey"></span>
-                                        <span class="sr-only">다음</span>
-                                    </a>
+                                    <ul
+                                        class="list-inline" style="margin-top:15px">
+                                        <!--           <li th:utext="${#strings.replace(#strings.escapeXml(portfolio.content),'&#10;','&lt;br&gt;')}"></li> -->
+                                        <li th:utext="${portfolio.content}"></li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times"></i>
+                                        Close Project</button>
                                 </div>
-                                <ul
-                                    class="list-inline" style="margin-top:15px">
-                                    <!--           <li th:utext="${#strings.replace(#strings.escapeXml(portfolio.content),'&#10;','&lt;br&gt;')}"></li> -->
-                                    <li th:utext="${portfolio.content}"></li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fas fa-times"></i>
-                                    Close Project</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-                    
-    <div aria-hidden="true" class="chat-modal modal fade" role="dialog" id="chatModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="container" style="margin-top:25px">
-                    <div class="messaging">
-                        <div class="content">
-                            <button class="create btn btn-primary" type="button" style="width:60%;margin-top:15px" >
+        <div aria-hidden="true" class="chat-modal modal fade" id="chatModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="container" style="margin-top:25px">
+                        <div class="messaging">
+                            <div class="content">
+                                <button class="create btn btn-primary" style="width:60%;margin-top:15px" type="button">
                                     <i class="fas fa-plug"></i>
                                     접속
-                            </button>
-                            <button class="exit btn btn-primary" type="button" style="display:none; width:60%;margin-top:15px">
+                                </button>
+                                <button class="exit btn btn-primary" style="display:none; width:60%;margin-top:15px" type="button">
                                     <i class="fas fa-times"></i>
                                     종료
-                            </button>
-                        </div>
-                        <div class="inbox_msg" style="margin-top:50px">
-                            <div class="mesgs">
-                                <div class="msg_history"></div>
-                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                                        <input class="write_msg" placeholder="메시지를 입력해주세요." type="text"/>
-                                        <button class="msg_send_btn" type="button">
-                                            <i aria-hidden="true" class="fa fa-paper-plane"></i>
-                                        </button>
+                                </button>
+                            </div>
+                            <div class="inbox_msg" style="margin-top:50px">
+                                <div class="mesgs">
+                                    <div class="msg_history"></div>
+                                    <div class="type_msg">
+                                        <div class="input_msg_write">
+                                            <input class="write_msg" placeholder="메시지를 입력해주세요." type="text"/>
+                                            <button class="msg_send_btn" type="button">
+                                                <i aria-hidden="true" class="fa fa-paper-plane"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fas fa-times"></i>
+                            닫기</button>
                     </div>
-                      <button class="btn btn-primary" data-dismiss="modal" type="button">
-                   <i class="fas fa-times"></i>
-             			  닫기</button>
                 </div>
-
             </div>
         </div>
-    </div>
-        
-        
-
         <!-- Bootstrap core JavaScript -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -559,26 +552,18 @@
         <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
         <!-- 토스터 임포트 -->
         <script th:src="@{/js/toastr.js}"></script>
-        
         <script th:src="@{/js/myScript.js}"></script>
-        
         <!-- Contact form JavaScript -->
         <script th:src="@{/js/jqBootstrapValidation.js}"></script>
         <script th:src="@{/js/contact_me.js}"></script>
         <!-- Custom scripts for this template -->
         <script th:src="@{/js/agency.min.js}"></script>
         <!--gmap js 임포트-->
-      
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzc2oN97bwknyIy7TPiSDaQdAyPhvsIV4&callback=myMap"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init({duration: 1200});
-        </script>
-        
+        <script>AOS.init({duration: 1200});</script>
         <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-    	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+        <script src="/webjars/stomp-websocket/stomp.min.js"></script>
         <script th:src="@{/js/stompChat.js}"></script>
-    
-    
     </body>
 </html>
