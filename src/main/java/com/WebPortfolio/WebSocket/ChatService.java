@@ -1,6 +1,5 @@
 package com.WebPortfolio.WebSocket;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
